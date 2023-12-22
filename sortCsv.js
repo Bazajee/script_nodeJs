@@ -19,27 +19,11 @@ let csvLines = fs.readFileSync(csvFilePath).toString().split("\r")
 // Out the firstline of csv file (column name)
 let rawData = csvLines.slice(1)
 
-
 // Put the column index your interest
 const columnsIndex = []
 
-function getColumn(dataArray, indexArray = []) {
-    /*
-    * Function to get specific columns from a 2D array
-    * Parameters:
-    *   - array: 2D array containing data
-    *   - indexArray: Array of column indices to be extracted (default is an empty array)
-    */
 
-    // Extract the header row and split it into an array of column names
-    let columnsList = dataArray[0].split(';')
 
-    // Map the specified column indices to their corresponding names
-    let filterColumns = indexArray.map(index => columnsList[index])
-
-    // Return the filtered columns
-    return filterColumns
-}
 
 function getColumn(dataArray, indexArray = []) {
     /*
@@ -59,8 +43,7 @@ function getColumn(dataArray, indexArray = []) {
     return filterColumns
 }
 
-
-function getArrayData(array, indexArray) {
+function getArrayData(array, indexArray =[]) {
     /*
     * Function to get specific data columns from a 2D array
     * Parameters:
@@ -80,9 +63,12 @@ function getArrayData(array, indexArray) {
         data.push(line)
     }
 
-    // Returns the 2D array containing the specified data in the selected columns
+    // Return the 2D array containing the specified data columns
     return data
 }
+
+
+
 
 getColumn(csvLines, columnsIndex)
 getArrayData(rawData, columnsIndex)

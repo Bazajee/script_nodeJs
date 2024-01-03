@@ -2,4 +2,4 @@
 My nodejs scripts
 
 ## Table of Contents
-    - sortCsv :  Sort a csv file by it's column and his row.
+    - sortCsv: Sort a csv file by columns and rows.
